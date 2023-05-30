@@ -15,6 +15,16 @@ func main() {
 		fmt.Sscanf(os.Args[1], "%d", &maxLength)
 	}
 
+	if maxLength < 1 {
+		fmt.Println("Playlist length should be more than 1")
+		os.Exit(1)
+	}
+
+	if maxLength > 500 {
+		fmt.Println("Playlist length should be less than or equals to 500")
+		os.Exit(1)
+	}
+
 	// Create a new playlist
 	playlist := playlist.NewPlaylist(maxLength)
 
